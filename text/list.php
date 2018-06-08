@@ -1,10 +1,13 @@
 <meta charset="UTF-8">
 <?php
-mysql_connect('127.0.0.1','root','root');
-mysql_select_db("login");
-mysql_set_charset("set names utf8");
-$sql = "SELECT  * FROM `liuyan`";
-$res = mysql_query($sql);
+include('../Text.class.php');
+$obj=new Text();
+$res=$obj->selectAll('liuyan');
+// var_dump($res);
+foreach ($res as $key => $value) {
+	$data[$key]['id']=$value['id'];
+	$data[$key]['content']=$value['content'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,16 +23,18 @@ $res = mysql_query($sql);
 				<td>留言内容</td>
 				<td>操作</td>
 			</tr>
-			<?php while ($arr=mysql_fetch_assoc($res)){?>
-			<tr>
-				<td><?php echo $arr['id']?></td>
-				<td><?php echo $arr['content']?></td>
-				<td>
-					<a href="del.php?id=<?php echo $arr['id']?>">删除</a>|
-					<a href="upd.php?id=<?php echo $arr['id']?>">修改</a>
-				</td>
-			</tr>
-			<?php } ?>
+			<?php foreach ($data as $key => $value): ?>
+				<tr>
+					<td><?php echo $value['id']?></td>
+					<td><?php echo $value['content']?></td>
+					<td>
+						<a href="del.php?id=<?php echo $value['id']?>">删除</a>|
+						<a href="upd.php?id=<?php echo $value['id']?>">修改</a>
+					</td>
+				</tr>
+			<?php endforeach ?>
+			
+
 		</table>
 	</center>
 </body>

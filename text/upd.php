@@ -1,11 +1,12 @@
 <meta charset="UTF-8">
 <?php
-include('Db.class.php');
+include('../Text.class.php');
 $id=$_GET['id'];
-// var_dump($id);
+$obj=new Text();
 $res=$obj->selectAll('liuyan',"id=$id");
-while ($arr=mysql_fetch_assoc($res)) {
-	$data[]=$arr;
+foreach ($res as $key => $value) {
+	$data[$key]['id']=$value['id'];
+	$data[$key]['content']=$value['content'];
 }
 
 ?>

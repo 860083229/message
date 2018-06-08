@@ -5,9 +5,9 @@
 	<title>Document</title>
 </head>
 <body>
-	<form action="login_do.php" method="post">
+	<form action="dologin.php" method="post">
 		<table>
-		<h4><a href="adduser.php">点击注册</a></h4>
+		<h4><a href="register.php">点击注册</a></h4>
 			<tr>
 				<td>用户名：</td>
 				<td><input type="text" name="username"></td>

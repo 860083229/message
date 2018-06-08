@@ -1,7 +1,8 @@
 <meta charset=utf8>
 <?php 
-include('Db.class.php');
+include('../Text.class.php');
 $data=$_POST;
+$obj=new Text();
 $res=$obj->insert('liuyan',$data);
 // var_dump($res);die;
 if($res){
