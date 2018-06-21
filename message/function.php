@@ -25,8 +25,7 @@ function url($controller,$action,$param=array())
 }
 function redirect($url)
 {
-
-
+	header('Location:'.$url);
 }
 
 function getImg($imgSrc)
@@ -34,14 +33,14 @@ function getImg($imgSrc)
 	return APP_HOST.'/public/img/'.$imgSrc;
 }
 
-function getJs($jsSrc)
+function getCss($jsSrc)
 {
-
+	return APP_HOST .'/public/css/' .$cssSrc;
 	
 }
 
-function getCss($cssSrc)
+function getJs($cssSrc)
 {
-
+	return APP_HOST .'/public/js/' .$jsSrc;
 	
 }
