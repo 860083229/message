@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<?php foreach ($data as $key => $value): ?>
+		<form action="http://demo.message.com/index.php?c=ActiveController&a=updContent_do" method="post">
+		<input type="hidden" value="<?php echo $value['id']?>" name="id">
+		<table>
+			<tr>
+				<td>标题：</td>
+				<td><input type="text" name="title" value="<?php echo $value['title']?>"></td>
+			</tr>
+			<tr>
+				<td>内容：</td>
+				<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $value['content']?></textarea></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="修改" ></td>
+			</tr>
+
+		</table>
+		<div id="dia"></div>
+
+	</form>
+	<?php endforeach ?>
+
+</body>  
+</html>
